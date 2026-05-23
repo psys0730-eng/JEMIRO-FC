@@ -8,7 +8,9 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-  baseURL: '/api', // vite.config.js의 proxy 설정으로 → http://localhost:5000/api
+  // 로컬: Vite 프록시(/api → localhost:5000)
+  // 배포: VITE_API_URL 환경변수 (예: https://my-server.railway.app/api)
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
