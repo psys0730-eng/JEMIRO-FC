@@ -104,6 +104,7 @@ function MainDashboard({ user, onLogout, onGoAdmin }) {
         modules={[Pagination]}
         pagination={{ clickable: true }}
         slidesPerView={1}
+        autoHeight={true}
         className="main-swiper"
       >
 
