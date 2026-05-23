@@ -1,0 +1,68 @@
+/* ============================================================
+   index.css - 전역 기본 스타일
+   ============================================================ */
+
+/* Google Fonts - Inter (모던 산세리프) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS 변수 (디자인 토큰) */
+:root {
+  --color-primary: #22c55e;       /* 풋살 그린 */
+  --color-primary-dark: #16a34a;
+  --color-bg: #0f172a;            /* 다크 배경 */
+  --color-surface: #1e293b;       /* 카드 배경 */
+  --color-border: #334155;        /* 테두리 */
+  --color-text: #f1f5f9;          /* 메인 텍스트 */
+  --color-muted: #94a3b8;         /* 보조 텍스트 */
+  --color-danger: #ef4444;
+  --font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* 기본 초기화 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-family);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

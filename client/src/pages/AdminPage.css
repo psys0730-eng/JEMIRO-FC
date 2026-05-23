@@ -1,0 +1,527 @@
+/* ============================================================
+   AdminPage.css - 관리자 페이지 스타일
+   ============================================================ */
+
+/* ── 잔액 수정 카드 ──────────────────────────────────────── */
+.balance-edit-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-radius: 16px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 현재 잔액 표시 행 */
+.balance-edit-current {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: rgba(34, 197, 94, 0.07);
+  border-radius: 10px;
+}
+
+.balance-edit-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.balance-edit-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4ade80;
+  letter-spacing: -0.5px;
+}
+
+/* 입력 필드 그룹 */
+.balance-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.balance-edit-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.balance-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.balance-input-wrap input {
+  flex: 1;
+  padding: 11px 44px 11px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.balance-input-wrap input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+.balance-unit {
+  position: absolute;
+  right: 14px;
+  font-size: 13px;
+  color: #475569;
+  pointer-events: none;
+}
+
+.balance-edit-field > input {
+  padding: 11px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f1f5f9;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.balance-edit-field > input::placeholder {
+  color: #334155;
+}
+
+.balance-edit-field > input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+/* 저장 결과 메시지 */
+.balance-save-msg {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+.balance-save-msg.success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+
+.balance-save-msg.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 저장 버튼 */
+.balance-save-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+}
+
+.balance-save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.balance-save-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+.admin-page {
+  min-height: 100vh;
+  background: #0f172a;
+  color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── 헤더 ─────────────────────────────────────────────────── */
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-back-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.admin-back-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+}
+
+.admin-header-title {
+  flex: 1;
+}
+
+.admin-header-title h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 1px;
+}
+
+.admin-header-title p {
+  font-size: 11px;
+  color: #475569;
+}
+
+/* ── 메인 콘텐츠 ─────────────────────────────────────────── */
+.admin-main {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── 섹션 타이틀 ─────────────────────────────────────────── */
+.admin-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #475569;
+  padding: 0 4px;
+  margin-top: 8px;
+}
+
+/* ── 메뉴 카드 ───────────────────────────────────────────── */
+.admin-menu-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.admin-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-menu-item:last-child {
+  border-bottom: none;
+}
+
+.admin-menu-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-menu-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.icon-green  { background: rgba(34, 197, 94, 0.15); }
+.icon-blue   { background: rgba(59, 130, 246, 0.15); }
+.icon-yellow { background: rgba(234, 179, 8, 0.15); }
+.icon-purple { background: rgba(168, 85, 247, 0.15); }
+.icon-red    { background: rgba(239, 68, 68, 0.15); }
+
+.admin-menu-text {
+  flex: 1;
+}
+
+.admin-menu-text h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 2px;
+}
+
+.admin-menu-text p {
+  font-size: 12px;
+  color: #475569;
+}
+
+.admin-menu-arrow {
+  color: #334155;
+  font-size: 16px;
+}
+
+/* 준비 중 배지 */
+.coming-badge {
+  padding: 3px 8px;
+  background: rgba(100, 116, 139, 0.15);
+  border-radius: 99px;
+  font-size: 10px;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* ════════════════════════════════════════════════════════════
+   경기 일정 관리 섹션
+   ════════════════════════════════════════════════════════════ */
+
+/* 빈 상태 */
+.sched-empty {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: #475569;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 12px;
+}
+
+/* 일정 목록 */
+.sched-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sched-item {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.sched-item.editing {
+  border-color: rgba(234, 179, 8, 0.5);
+  background: rgba(234, 179, 8, 0.05);
+}
+
+.sched-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sched-type-pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: rgba(34, 197, 94, 0.12);
+  border-radius: 99px;
+  color: #4ade80;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+
+.sched-date {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.sched-detail {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.sched-memo {
+  font-size: 11px;
+  color: #475569;
+  font-style: italic;
+}
+
+.sched-vote-count {
+  font-size: 11px;
+  color: #475569;
+  margin-top: 2px;
+}
+
+/* 일정 아이템 버튼들 */
+.sched-item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.sched-edit-btn,
+.sched-complete-btn,
+.sched-delete-btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.sched-edit-btn {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.sched-edit-btn:hover { background: rgba(59, 130, 246, 0.25); }
+
+.sched-complete-btn {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.sched-complete-btn:hover:not(:disabled) { background: rgba(34, 197, 94, 0.22); }
+.sched-complete-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.sched-delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.sched-delete-btn:hover { background: rgba(239, 68, 68, 0.2); }
+
+/* 등록/수정 폼 카드 */
+.sched-form-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sched-form-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.sched-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sched-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sched-field.full {
+  grid-column: 1 / -1;
+}
+
+.sched-field label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.sched-field input,
+.sched-field select {
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f1f5f9;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.sched-field input::placeholder { color: #334155; }
+
+.sched-field input:focus,
+.sched-field select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.sched-field select option {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+/* 폼 버튼 행 */
+.sched-form-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.sched-cancel-btn {
+  flex: 0 0 auto;
+  padding: 13px 16px;
+  background: rgba(100, 116, 139, 0.15);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: 12px;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sched-cancel-btn:hover { background: rgba(100, 116, 139, 0.25); }
+
+.sched-form-btns .balance-save-btn { flex: 1; }
